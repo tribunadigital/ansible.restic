@@ -32,6 +32,9 @@ export B2_ACCOUNT_KEY={{ restic_repos[item.repo].b2_account_key }}
 {% if item.src is defined %}
 BACKUP_SOURCE={{ item.src }}
 {% endif %}
+{% for go_env in restic_go_envs %}
+export {{ go_env.name }}={{ go_env.value }}
+{% endfor %}
 set -uxo pipefail
 {#
   Define Tags

@@ -24,3 +24,6 @@ BACKUP_NAME={{ item.name }}
 {% if item.src is defined %}
 BACKUP_SOURCE={{ item.src }}
 {% endif %}
+{% for go_env in restic_go_envs %}
+export {{ go_env.name }}={{ go_env.value }}
+{% endfor %}
